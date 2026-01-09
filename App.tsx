@@ -902,7 +902,10 @@ export default function App() {
   return (
       <div className="flex flex-col h-screen bg-black text-white font-sans overflow-hidden">
         {!user.isPremium && view !== 'LOGIN' && view !== 'REGISTER' && (
-          <AdBanner position="top" />
+          <>
+            <AdBanner position="top" />
+            <div className="ads-container flex justify-center py-1 opacity-50 min-h-[10px]"></div>
+          </>
         )}
         <main className="flex-1 relative overflow-y-auto scrollbar-hide flex flex-col">
           {loading && (
@@ -923,7 +926,10 @@ export default function App() {
           {showInterstitial && <InterstitialAd onClose={handleCloseInterstitial} />}
         </main>
         {!user.isPremium && view !== 'LOGIN' && view !== 'REGISTER' && (
-          <AdBanner position="bottom" />
+          <>
+            <div className="ads-container flex justify-center py-1 opacity-50 min-h-[10px]"></div>
+            <AdBanner position="bottom" />
+          </>
         )}
       </div>
   );
